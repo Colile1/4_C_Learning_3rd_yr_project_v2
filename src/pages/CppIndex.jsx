@@ -1,18 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { lessons, learningPaths } from '@/data/lessons';
-import { BookOpen, Clock, Star, Search, Filter, ChevronRight, Code, Brain, Target, Users } from 'lucide-react';
+import { BookOpen, Clock, Star, Search, Filter, ChevronRight, Code, Brain, Target, Users, UserCheck } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
 const CppIndex = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedPath, setSelectedPath] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('All');
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const pathParam = urlParams.get('path');
+    if (pathParam && learningPaths.find(p => p.id === pathParam)) {
+      setSelectedPath(pathParam);
+      toast({
+        title: "Learning Path Selected",
+        description: `Based on your assessment, we've selected the ${learningPaths.find(p => p.id === pathParam)?.name} for you.`,
+        duration: 5000,
+      });
+    }
+  }, [location.search]);
 
   const filteredLessons = lessons.filter(lesson => {
     const matchesSearch = lesson.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -83,6 +97,20 @@ const CppIndex = () => {
                 <Code className="w-5 h-5 text-orange-400" />
                 <span>Hands-On Practice</span>
               </div>
+              <div className="flex items-center gap-2 glass-effect rounded-full px-6 py-3">
+                <UserCheck className="w-5 h-5 text-pink-400" />
+                <span>Personalized Assessment</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => navigate('/assessment')}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold"
+              >
+                <UserCheck className="w-5 h-5 mr-2" />
+                Take Learning Assessment
+              </Button>
             </div>
           </motion.div>
         </section>

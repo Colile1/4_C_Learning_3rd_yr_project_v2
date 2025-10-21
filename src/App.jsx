@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import CppIndex from '@/pages/CppIndex';
 import LessonPage from '@/pages/LessonPage';
+import AssessmentPage from '@/pages/AssessmentPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
         <Routes>
           <Route path="/" element={<CppIndex />} />
+          <Route path="/assessment" element={<AssessmentPage />} />
           <Route path="/lesson/:lessonId/:learningType" element={<LessonPage />} />
         </Routes>
         <Toaster />
