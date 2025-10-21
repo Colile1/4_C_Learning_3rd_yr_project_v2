@@ -1,0 +1,62 @@
+4_C_Learning_3rd_yr_project/
+├── .nvmrc
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── vite.config.js
+├── frontend/
+│   └── C++/
+├── plugins/
+│   └── visual-editor/
+│       ├── edit-mode-script.js
+│       ├── visual-editor-config.js
+│       ├── vite-plugin-edit-mode.js
+│       └── vite-plugin-react-inline-editor.js
+├── public/
+│   ├── .htaccess
+│   └── [static assets]
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── index.css
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── button.jsx
+│   │   │   ├── dialog.jsx
+│   │   │   ├── slider.jsx
+│   │   │   ├── toast.jsx
+│   │   │   ├── toaster.jsx
+│   │   │   └── use-toast.js
+│   │   └── lesson/
+│   │       ├── AITutor.jsx
+│   │       ├── LearningContent.jsx
+│   │       ├── LessonHeader.jsx
+│   │       ├── LessonNavigation.jsx
+│   │       ├── PageHeader.jsx
+│   │       ├── Quiz.jsx
+│   │       ├── VideoPlayer.jsx
+│   │       ├── interactive-elements/
+│   │       │   ├── CodeChallenge.jsx
+│   │       │   ├── CodeEditor.jsx
+│   │       │   ├── CodeMatchingGame.jsx
+│   │       │   ├── InteractiveDemo.jsx
+│   │       │   ├── PracticeChallenges.jsx
+│   │       │   └── SyntaxPuzzle.jsx
+│   │       └── learning-styles/
+│   │           ├── HandsOnContent.jsx
+│   │           ├── InteractiveContent.jsx
+│   │           ├── TheoreticalContent.jsx
+│   │           └── VisualContent.jsx
+│   ├── data/
+│   │   └── lessons.js
+│   ├── lib/
+│   │   └── utils.js
+│   └── pages/
+│       ├── CppIndex.jsx
+│       └── LessonPage.jsx
+├── tools/
+│   └── generate-llms.js
+└── node_modules/ [dependencies]
